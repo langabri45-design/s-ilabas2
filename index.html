@@ -3,23 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kit digital con más de 200 actividades organizadas para acompañar la alfabetización con diversión y seguridad." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="De la Sílaba a la Lectura" />
+  <meta property="og:description" content="+200 actividades listas para imprimir y reforzar sílabas, lectura, escritura y comprensión." />
+  <meta property="og:url" content="https://tu-dominio.com" />
   <title>De la Sílaba a la Lectura</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --blue: #3c53ff;
+      --blue: #3558ff;
       --violet: #7a3cff;
-      --green: #16c79a;
-      --yellow: #fed766;
+      --green: #18c29c;
+      --yellow: #ffd966;
       --coral: #ff6b6b;
-      --dark: #1f2a44;
-      --light: #f7f7fb;
+      --cream: #fffaf1;
+      --soft-purple: #f4f1ff;
+      --soft-blue: #e8f3ff;
+      --dark: #1f2447;
+      --muted: #5c6080;
       --white: #ffffff;
-      --gradient-hero: linear-gradient(135deg, #fdf2ff 0%, #f0fbff 50%, #fff7ed 100%);
       --font-heading: "Baloo 2", sans-serif;
       --font-body: "Nunito", sans-serif;
+      --shadow-card: 0 18px 45px rgba(31, 36, 71, 0.08);
     }
 
     * {
@@ -29,9 +37,9 @@
     body {
       margin: 0;
       font-family: var(--font-body);
-      background: var(--light);
+      background: var(--cream);
       color: var(--dark);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     img {
@@ -44,46 +52,58 @@
       color: inherit;
     }
 
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 235, 207, 0.6), transparent 40%), radial-gradient(circle at 80% 0%, rgba(232, 243, 255, 0.6), transparent 35%);
+      z-index: -2;
+    }
+
     .page {
       overflow-x: hidden;
     }
 
-    header {
-      background: var(--gradient-hero);
-      padding: 24px;
+    header.site-header {
+      background: var(--soft-purple);
+      padding: 20px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 10px 30px rgba(122, 60, 255, 0.1);
     }
 
     .nav {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
     }
 
     .brand {
-      font-family: var(--font-heading);
-      font-size: 1.6rem;
-      color: var(--violet);
       display: flex;
       align-items: center;
       gap: 12px;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--violet);
     }
 
     .brand span {
       background: var(--yellow);
+      color: var(--dark);
       padding: 4px 12px;
       border-radius: 999px;
       font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--dark);
+      font-weight: 700;
     }
 
     .hero {
-      background: var(--gradient-hero);
-      padding: 60px 24px 80px;
       position: relative;
+      padding: 70px 24px 90px;
+      background: linear-gradient(135deg, #fff6ff 0%, #f8fbff 45%, #fffbed 100%);
       overflow: hidden;
     }
 
@@ -91,21 +111,22 @@
     .hero::before {
       content: "";
       position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 40px;
-      background: rgba(255, 255, 255, 0.6);
+      width: 360px;
+      height: 360px;
+      border-radius: 120px;
+      background: rgba(122, 60, 255, 0.08);
       z-index: 0;
     }
 
     .hero::after {
-      top: -60px;
-      right: -40px;
+      top: -140px;
+      right: -80px;
     }
 
     .hero::before {
-      bottom: -80px;
-      left: -60px;
+      bottom: -160px;
+      left: -100px;
+      background: rgba(53, 88, 255, 0.08);
     }
 
     .hero-inner {
@@ -113,98 +134,176 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
+      gap: 50px;
       position: relative;
       z-index: 1;
     }
 
-    .seal {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .badge-top {
+      align-self: flex-start;
       background: var(--white);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
       color: var(--violet);
-      box-shadow: 0 10px 25px rgba(124, 58, 255, 0.15);
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 12px 30px rgba(60, 83, 255, 0.12);
     }
 
     .hero h1 {
+      margin: 0;
       font-family: var(--font-heading);
-      font-size: clamp(2.6rem, 4vw, 3.6rem);
-      margin: 16px 0 12px;
+      font-size: clamp(2.6rem, 5vw, 3.7rem);
       color: var(--dark);
+      line-height: 1.1;
     }
 
     .hero h2 {
-      font-size: 1.3rem;
+      margin: 0;
+      font-size: 1.35rem;
       color: var(--violet);
-      margin: 0 0 16px;
       font-weight: 600;
     }
 
     .hero-highlight {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 18px 24px;
       display: inline-flex;
       flex-direction: column;
-      background: var(--white);
-      border-radius: 24px;
-      padding: 16px 20px;
-      margin-bottom: 18px;
-      box-shadow: 0 12px 30px rgba(60, 83, 255, 0.15);
-      border: 2px solid rgba(60, 83, 255, 0.15);
-      font-weight: 700;
+      font-weight: 800;
+      font-size: 1.4rem;
       color: var(--blue);
+      box-shadow: 0 20px 45px rgba(53, 88, 255, 0.15);
     }
 
-    .pillars {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 20px;
+    .hero-highlight small {
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      color: var(--muted);
     }
 
-    .pillar {
-      background: var(--dark);
-      color: var(--white);
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
+    .hero-line {
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: 1px;
     }
 
     .hero-benefits {
       display: grid;
       gap: 10px;
-      margin-bottom: 24px;
     }
 
     .hero-benefits p {
       margin: 0;
-      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 8px;
+      font-weight: 600;
       color: var(--dark);
     }
 
-    .price-tag {
+    .price-chip {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       background: var(--white);
-      border-radius: 18px;
-      padding: 14px 24px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      margin-bottom: 24px;
+      border-radius: 22px;
+      padding: 16px 26px;
+      box-shadow: 0 20px 45px rgba(255, 107, 107, 0.25);
       font-weight: 700;
       color: var(--coral);
     }
 
-    .price-tag span {
+    .price-chip span {
       font-size: 2rem;
       color: var(--blue);
+    }
+
+    .cta-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 24px;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 38px;
+      background: rgba(255, 255, 255, 0.4);
+      z-index: -1;
+      filter: blur(0.5px);
+    }
+
+    .mockup-board {
+      background: var(--white);
+      border-radius: 38px;
+      padding: 32px;
+      box-shadow: 0 35px 70px rgba(31, 36, 71, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-decoration {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255, 217, 102, 0.4);
+      top: 18px;
+      right: 26px;
+      filter: blur(1px);
+    }
+
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 18px;
+    }
+
+    .mockup-card {
+      background: linear-gradient(165deg, #ffffff 0%, #f3f6ff 100%);
+      border-radius: 22px;
+      padding: 16px;
+      border: 2px solid rgba(58, 75, 173, 0.1);
+      min-height: 150px;
+      box-shadow: 0 16px 35px rgba(31, 36, 71, 0.1);
+    }
+
+    .mockup-card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .mockup-card h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: var(--violet);
+    }
+
+    .mockup-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
     .btn {
@@ -212,427 +311,481 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 16px 32px;
       border-radius: 999px;
-      font-weight: 700;
+      padding: 16px 32px;
+      font-weight: 800;
       font-size: 1rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 12px 20px rgba(60, 83, 255, 0.2);
+      cursor: pointer;
+      text-transform: uppercase;
     }
 
     .btn:hover {
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.01);
     }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--violet), var(--blue));
       color: var(--white);
+      box-shadow: 0 18px 30px rgba(58, 75, 173, 0.25);
     }
 
-    .hero-visual {
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--yellow), var(--coral));
+      color: var(--dark);
+      box-shadow: 0 18px 30px rgba(255, 107, 107, 0.25);
+    }
+
+    .btn-ghost {
+      background: var(--white);
+      color: var(--violet);
+      border: 2px solid rgba(122, 60, 255, 0.2);
+    }
+
+    .btn-lg {
+      font-size: 1.05rem;
+      padding: 18px 40px;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    app-section {
+      display: block;
+      padding: 90px 24px;
+    }
+
+    app-section[theme="cream"] {
+      background: var(--cream);
+    }
+
+    app-section[theme="light"] {
+      background: var(--white);
+    }
+
+    app-section[theme="soft"] {
+      background: var(--soft-blue);
+    }
+
+    .section-content {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--blue);
+    }
+
+    .section-heading p {
+      margin: 12px auto 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    app-card,
+    benefit-card,
+    product-preview,
+    testimonial-card,
+    offer-box {
+      display: block;
+      background: var(--white);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(31, 36, 71, 0.05);
+    }
+
+    app-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      color: var(--violet);
+    }
+
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      display: inline-flex;
+    }
+
+    .solution-note {
+      margin-top: 30px;
+      background: var(--soft-purple);
+      padding: 22px;
+      border-radius: 24px;
+      font-weight: 600;
+      color: var(--dark);
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+
+    .steps-grid app-card {
       position: relative;
-      padding: 20px;
+      padding-top: 60px;
     }
 
-    .mockup-base {
+    .step-number {
+      position: absolute;
+      top: 24px;
+      left: 28px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 1rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .receive-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px;
+      align-items: center;
+    }
+
+    .receive-list {
       background: var(--white);
       border-radius: 32px;
       padding: 32px;
-      box-shadow: 0 30px 60px rgba(47, 21, 107, 0.15);
-      position: relative;
-      overflow: hidden;
+      box-shadow: var(--shadow-card);
     }
 
-    .mockup-circle {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: rgba(254, 215, 102, 0.4);
-      top: 20px;
-      right: 36px;
-      z-index: 0;
-    }
-
-    .mockup-stack {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(120px, 1fr));
-      gap: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .mockup-card {
-      background: linear-gradient(160deg, #fff, #f7f0ff);
-      border-radius: 18px;
-      padding: 16px;
-      border: 2px solid rgba(122, 60, 255, 0.15);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      min-height: 160px;
-      position: relative;
-    }
-
-    .mockup-card span {
-      font-weight: 700;
-      color: var(--violet);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .mockup-card p {
-      font-size: 0.9rem;
+    .receive-list ul {
+      list-style: none;
       margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .receive-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
       color: var(--dark);
     }
 
-    .section {
-      padding: 70px 24px;
-    }
-
-    .section.light {
-      background: var(--white);
-    }
-
-    .section.accent {
-      background: #eef5ff;
-    }
-
-    .section h3 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 3vw, 2.8rem);
+    .receive-list li span {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: var(--soft-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       color: var(--blue);
-      margin: 0 0 20px;
-      text-align: center;
+      font-weight: 800;
     }
 
-    .section p.section-subtext {
-      max-width: 720px;
-      margin: 0 auto 40px;
-      text-align: center;
-      font-size: 1.05rem;
-      color: #4a5678;
+    .receive-media {
+      position: relative;
     }
 
-    .pain-grid,
-    .cards-grid,
-    .differential-grid,
-    .bonuses-grid,
-    .checklist,
-    .before-after,
-    .features-list,
-    .security-strip,
+    .product-stack {
+      display: grid;
+      gap: 18px;
+      transform: rotate(-2deg);
+    }
+
+    .product-sheet {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 24px;
+      border: 2px solid rgba(122, 60, 255, 0.12);
+      box-shadow: 0 25px 45px rgba(31, 36, 71, 0.12);
+      position: relative;
+    }
+
+    .product-sheet::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px dashed rgba(53, 88, 255, 0.1);
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    .preview-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 26px;
+    }
+
+    product-preview {
+      background: linear-gradient(135deg, #ffffff 20%, #fdf5ff 100%);
+      position: relative;
+      transform: rotate(var(--angle, -2deg));
+    }
+
+    product-preview::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(31, 36, 71, 0.08);
+      border-radius: 20px;
+    }
+
+    .preview-title {
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: var(--violet);
+    }
+
+    .preview-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .benefits-grid,
+    .bonus-grid,
+    .offer-list,
+    .guarantee-grid,
+    .testimonial-grid,
     .faq-list {
       display: grid;
       gap: 20px;
     }
 
-    .pain-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    .benefits-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
-    .pain-card,
-    .card,
-    .bonus-card,
-    .diff-card,
-    .check-item,
-    .before-card,
-    .after-card {
+    benefit-card h3 {
+      margin: 0 0 8px;
+      color: var(--violet);
+      font-size: 1.25rem;
+    }
+
+    benefit-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .audience-list {
       background: var(--white);
-      border-radius: 24px;
-      padding: 24px;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      box-shadow: 0 14px 30px rgba(31, 42, 68, 0.08);
-    }
-
-    .pain-card strong {
-      font-size: 1.1rem;
-      color: var(--violet);
-    }
-
-    .card h4,
-    .diff-card h4,
-    .bonus-card h4,
-    .check-item h4,
-    .before-card h4,
-    .after-card h4 {
-      margin-top: 0;
-      color: var(--dark);
-    }
-
-    .cards-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
-    .card h4 {
-      font-size: 1.3rem;
-      color: var(--violet);
-    }
-
-    .diff-card {
-      background: #fdf2ff;
-      border: 1px solid rgba(122, 60, 255, 0.15);
-    }
-
-    .bonuses-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .bonus-card {
-      border: 2px dashed rgba(22, 199, 154, 0.4);
-      background: #f1fff9;
-    }
-
-    .checklist {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      display: grid;
+      gap: 16px;
       font-weight: 600;
     }
 
-    .check-item span {
-      font-size: 1.5rem;
-      color: var(--green);
+    .audience-list div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .before-after {
-      max-width: 1000px;
-      margin: 0 auto;
+    .audience-list span {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: var(--soft-blue);
+      color: var(--green);
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bonus-grid {
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
-    .before-card {
-      border-top: 6px solid var(--coral);
+    .bonus-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 28px;
+      border-radius: 26px;
+      background: #f4fff9;
+      border: 2px dashed rgba(24, 194, 156, 0.4);
+      box-shadow: var(--shadow-card);
     }
 
-    .after-card {
-      border-top: 6px solid var(--green);
-    }
-
-    .product-showcase {
-      background: linear-gradient(135deg, #fef3f7, #eef5ff);
-      border-radius: 32px;
-      padding: 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-    }
-
-    .product-showcase h4 {
-      font-size: 1.6rem;
-      margin: 0 0 12px;
+    .bonus-card h3 {
+      margin: 0;
       color: var(--dark);
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 20px 0;
+    .bonus-card p {
+      margin: 0;
+      color: var(--muted);
     }
 
-    .tag {
-      background: var(--white);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-weight: 600;
-      color: var(--violet);
-      border: 1px solid rgba(60, 83, 255, 0.2);
-    }
-
-    .showcase-mockups {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .showcase-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 16px;
-      min-height: 180px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-    }
-
-    .pricing-section {
-      background: #1b1042;
-      color: var(--white);
-      border-radius: 32px;
-      padding: 50px 30px;
-      max-width: 1000px;
-      margin: 0 auto;
+    offer-box {
       text-align: center;
-      box-shadow: 0 40px 80px rgba(27, 16, 66, 0.4);
+      background: linear-gradient(135deg, #2b1d67, #5135d6);
+      color: var(--white);
+      border: none;
+      padding: 50px 36px;
     }
 
-    .pricing-section h4 {
-      margin: 0 0 16px;
-      font-size: 2.4rem;
-      font-family: var(--font-heading);
+    .offer-list {
+      margin: 30px 0;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     }
 
-    .price-display {
-      font-size: 3.4rem;
-      font-weight: 700;
-      margin: 10px 0 20px;
+    .offer-list span {
+      background: rgba(255, 255, 255, 0.14);
+      padding: 10px 16px;
+      border-radius: 18px;
+      font-weight: 600;
+      font-size: 0.95rem;
     }
 
-    .pricing-features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
+    .offer-price {
+      font-size: 3rem;
+      font-weight: 800;
+      margin: 10px 0 6px;
+    }
+
+    .offer-note {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.8);
       margin-bottom: 24px;
     }
 
-    .pricing-features span {
-      background: rgba(255, 255, 255, 0.12);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .cta-secondary {
-      background: linear-gradient(135deg, var(--yellow), var(--coral));
-      color: var(--dark);
-      box-shadow: 0 12px 30px rgba(255, 107, 107, 0.3);
-    }
-
-    .guarantee {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 40px;
-      border-radius: 24px;
+    .guarantee-box {
       background: #fffbe6;
-      border: 2px solid #ffd166;
-      box-shadow: 0 20px 40px rgba(255, 209, 102, 0.3);
-    }
-
-    .guarantee .seal {
-      margin-bottom: 12px;
-      background: var(--yellow);
-      color: var(--dark);
-      box-shadow: none;
-    }
-
-    .security-strip {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      background: #13182d;
-      color: var(--white);
-      border-radius: 20px;
-      padding: 24px;
+      border-radius: 32px;
+      padding: 40px;
+      border: 2px solid #ffd966;
+      box-shadow: 0 30px 60px rgba(255, 217, 102, 0.4);
       text-align: center;
-      gap: 10px;
     }
 
-    .security-item {
-      padding: 12px;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    .guarantee-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-top: 24px;
     }
 
-    .security-item:last-child {
-      border-right: none;
+    .guarantee-item {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      box-shadow: var(--shadow-card);
+    }
+
+    .testimonial-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    testimonial-card {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 26px;
+      border: 1px dashed rgba(53, 88, 255, 0.2);
+    }
+
+    .testimonial-placeholder {
+      font-style: italic;
+      color: var(--muted);
+      margin: 16px 0;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--dark);
     }
 
     .faq-list {
+      grid-template-columns: 1fr;
       max-width: 900px;
       margin: 0 auto;
     }
 
-    details {
+    faq-item details {
       background: var(--white);
-      border-radius: 18px;
-      padding: 18px 22px;
-      font-size: 1rem;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+      border-radius: 22px;
+      padding: 18px 24px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(31, 36, 71, 0.06);
     }
 
-    details + details {
-      margin-top: 16px;
-    }
-
-    summary {
-      cursor: pointer;
+    faq-item summary {
       font-weight: 700;
       color: var(--violet);
+      cursor: pointer;
+      outline: none;
+    }
+
+    faq-item p {
+      margin: 12px 0 0;
+      color: var(--muted);
     }
 
     .final-cta {
-      background: linear-gradient(135deg, #2d1b69, #4b47d7);
+      background: linear-gradient(135deg, #2d1c6f, #4d40d0);
       color: var(--white);
+      border-radius: 36px;
+      padding: 60px 40px;
       text-align: center;
-      border-radius: 30px;
-      padding: 50px 30px;
-      max-width: 1050px;
-      margin: 0 auto;
+      box-shadow: 0 40px 80px rgba(45, 28, 111, 0.4);
     }
 
-    .final-cta h3 {
+    .final-cta h2 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
       color: var(--white);
     }
 
     .final-cta p {
-      font-size: 1.1rem;
-      margin: 12px auto 24px;
+      margin: 18px auto;
       max-width: 640px;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     footer {
-      text-align: center;
-      padding: 40px 24px;
       background: #0f1327;
       color: rgba(255, 255, 255, 0.8);
-      font-size: 0.9rem;
+      text-align: center;
+      padding: 50px 24px;
+      font-size: 0.95rem;
     }
 
-    .cta-group {
+    .footer-links {
+      margin-top: 12px;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .cta-note {
-      font-size: 0.85rem;
-      color: #55607d;
-    }
-
-    .badges {
-      display: flex;
+      justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 20px 0;
     }
 
-    .badge {
-      background: var(--white);
-      padding: 10px 18px;
-      border-radius: 16px;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
       font-weight: 600;
-      color: var(--green);
     }
 
     [data-animate] {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(35px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
     [data-animate].show {
@@ -640,106 +793,134 @@
       transform: translateY(0);
     }
 
+    .floating-cta {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--coral), var(--yellow));
+      color: var(--dark);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+      z-index: 20;
+    }
+
     @media (max-width: 768px) {
-      .nav {
-        flex-direction: column;
-      }
-
-      .cta-group {
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .pricing-features {
-        flex-direction: column;
-      }
-
-      .product-showcase {
-        padding: 30px 20px;
-      }
-
-      .showcase-mockups {
-        grid-template-columns: 1fr;
-      }
-
       .hero-inner {
         grid-template-columns: 1fr;
       }
 
-      .security-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      .hero-content {
+        text-align: center;
+        align-items: center;
       }
 
-      .security-item:last-child {
-        border-bottom: none;
+      .hero-highlight,
+      .price-chip,
+      .badge-top {
+        align-self: center;
+      }
+
+      .hero-benefits p {
+        justify-content: center;
+      }
+
+      .receive-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .preview-gallery,
+      .benefits-grid,
+      .bonus-grid,
+      .offer-list,
+      .guarantee-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header.site-header {
+        position: sticky;
+      }
+
+      .nav {
+        flex-direction: column;
+      }
+
+      body {
+        padding-bottom: 110px;
+      }
+
+      .floating-cta {
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <header>
+    <header class="site-header">
       <div class="nav">
         <div class="brand">
           <span>PDF DIGITAL</span>
-          DE LA SÍLABA A LA LECTURA
+          Turminha Alfa Kids
         </div>
-        <a class="btn btn-primary checkout-btn" data-cta="nav">¡QUIERO ACCEDER AHORA! →</a>
+        <app-button label="¡QUIERO ACCEDER AHORA! →" variant="primary" data-cta="nav" checkout></app-button>
       </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero-inner">
-        <div data-animate>
-          <div class="seal">¡DEL APRENDIZAJE A LA CONFIANZA!</div>
+        <div class="hero-content" data-animate>
+          <div class="badge-top">¡DEL APRENDIZAJE A LA CONFIANZA!</div>
           <h1>DE LA SÍLABA A LA LECTURA</h1>
           <h2>Kit completo para alfabetizar con más seguridad y diversión</h2>
           <div class="hero-highlight">
             +200 ACTIVIDADES
-            <small>Organizadas por etapas</small>
+            <small>ORGANIZADAS POR ETAPAS</small>
           </div>
-          <div class="pillars">
-            <div class="pillar">Sílabas</div>
-            <div class="pillar">Lectura</div>
-            <div class="pillar">Escritura</div>
-            <div class="pillar">Comprensión</div>
-          </div>
+          <div class="hero-line">Sílabas • Lectura • Escritura • Comprensión</div>
           <div class="hero-benefits">
             <p>✓ Ayuda en el proceso de alfabetización</p>
             <p>✓ Actividades claras, lúdicas y atractivas</p>
             <p>✓ Ideal para casa, refuerzo y aula</p>
           </div>
-          <div class="price-tag">
-            POR SOLO <span>US$ 9,90</span>
+          <div class="price-chip">
+            POR SOLO
+            <span>US$ 9,90</span>
           </div>
-          <div class="cta-group">
-            <a class="btn btn-primary checkout-btn" data-cta="hero">¡QUIERO ACCEDER AHORA! →</a>
-            <span class="cta-note">Pago único • Acceso inmediato • PDF imprimible</span>
-          </div>
+          <app-button label="¡QUIERO ACCEDER AHORA! →" variant="primary" size="lg" data-cta="hero" checkout></app-button>
+          <div class="cta-note">Pago único • Acceso inmediato • Material listo para imprimir</div>
         </div>
         <div class="hero-visual" data-animate>
-          <div class="mockup-base">
-            <div class="mockup-circle"></div>
-            <div class="mockup-stack">
+          <div class="mockup-board">
+            <div class="mockup-decoration"></div>
+            <div class="mockup-grid">
               <div class="mockup-card">
-                <span>Sílabas divertidas</span>
-                <p>Identifica, completa y combina sílabas con actividades visuales.</p>
+                <span>AB</span>
+                <h4>Sílabas dinámicas</h4>
+                <p>Reconoce, combina y completa sílabas con apoyo visual.</p>
               </div>
               <div class="mockup-card">
-                <span>Lectura guiada</span>
-                <p>Páginas con palabras, frases y comprensión de textos cortos.</p>
+                <span>📖</span>
+                <h4>Lectura guiada</h4>
+                <p>Palabras y frases progresivas con pistas ilustradas.</p>
               </div>
               <div class="mockup-card">
-                <span>Escritura creativa</span>
-                <p>Ejercicios de caligrafía y formación de palabras.</p>
+                <span>✏️</span>
+                <h4>Escritura creativa</h4>
+                <p>Ejercicios para practicar trazos, letras y palabras.</p>
               </div>
               <div class="mockup-card">
-                <span>Comprensión</span>
-                <p>Historias infantiles con preguntas sencillas y juegos.</p>
+                <span>🔍</span>
+                <h4>Comprensión</h4>
+                <p>Textos cortos con preguntas sencillas para interpretar.</p>
               </div>
             </div>
           </div>
@@ -747,239 +928,362 @@
       </div>
     </section>
 
-    <section class="section light" id="identificacion">
-      <h3>¿Te cuesta encontrar actividades adecuadas para alfabetizar?</h3>
-      <div class="pain-grid" data-animate>
-        <div class="pain-card">
-          <strong>¿Pasas horas buscando actividades?</strong>
-          <p>Curar materiales dispersos consume tiempo que podrías dedicar al aprendizaje.</p>
+    <app-section id="problema" theme="cream">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>¿Tu hijo necesita más práctica para avanzar?</h2>
         </div>
-        <div class="pain-card">
-          <strong>¿No sabes qué actividad aplicar en cada etapa?</strong>
-          <p>Sin una guía clara es difícil avanzar con seguridad.</p>
+        <div class="card-grid" data-animate>
+          <app-card>
+            <div class="card-icon">🔤</div>
+            <h3>Le cuesta reconocer algunas sílabas</h3>
+            <p>La falta de actividades atractivas dificulta fijar cada combinación.</p>
+          </app-card>
+          <app-card>
+            <div class="card-icon">📚</div>
+            <h3>Necesita practicar la lectura</h3>
+            <p>Sin una secuencia clara, la lectura se vuelve lenta y desmotivadora.</p>
+          </app-card>
+          <app-card>
+            <div class="card-icon">🎯</div>
+            <h3>Se distrae fácilmente</h3>
+            <p>Actividades repetitivas no captan la atención por mucho tiempo.</p>
+          </app-card>
+          <app-card>
+            <div class="card-icon">🏠</div>
+            <h3>Faltan recursos listos</h3>
+            <p>Preparar hojas lleva horas que podrías dedicar al aprendizaje.</p>
+          </app-card>
         </div>
-        <div class="pain-card">
-          <strong>¿Necesitas material listo para imprimir?</strong>
-          <p>El kit te entrega hojas prácticas listas para usar.</p>
-        </div>
-        <div class="pain-card">
-          <strong>¿Quieres reforzar la lectura y escritura en casa?</strong>
-          <p>Organiza el refuerzo desde casa o el aula con actividades lúdicas.</p>
+        <div class="solution-note" data-animate>
+          Con DE LA SÍLABA A LA LECTURA, tienes actividades listas para acompañar cada etapa del aprendizaje.
         </div>
       </div>
-      <p class="section-subtext">Ahora tienes todo organizado en un solo kit.</p>
-    </section>
+    </app-section>
 
-    <section class="section" id="que-es">
-      <h3>Todo lo que necesitas para acompañar la alfabetización</h3>
-      <p class="section-subtext">Un kit digital con más de 200 actividades organizadas por etapas para practicar sílabas, lectura, escritura y comprensión de forma clara y divertida.</p>
-      <div class="cards-grid" data-animate>
-        <div class="card">
-          <h4>SÍLABAS</h4>
-          <p>Actividades para reconocer, completar y formar sílabas con apoyo visual.</p>
+    <app-section id="como-funciona" theme="light">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>Todo organizado para facilitar el aprendizaje</h2>
         </div>
-        <div class="card">
-          <h4>LECTURA</h4>
-          <p>Ejercicios progresivos para estimular la lectura de palabras y frases.</p>
-        </div>
-        <div class="card">
-          <h4>ESCRITURA</h4>
-          <p>Prácticas para escribir letras, palabras y construir frases con seguridad.</p>
-        </div>
-        <div class="card">
-          <h4>COMPRENSIÓN</h4>
-          <p>Lecturas infantiles con preguntas sencillas para asegurar la comprensión.</p>
+        <div class="card-grid steps-grid" data-animate>
+          <app-card>
+            <div class="step-number">01</div>
+            <div class="card-icon">🧡</div>
+            <h3>SÍLABAS</h3>
+            <p>Reconocimiento, formación y práctica con juegos y recortes.</p>
+          </app-card>
+          <app-card>
+            <div class="step-number">02</div>
+            <div class="card-icon">📖</div>
+            <h3>LECTURA</h3>
+            <p>Palabras, frases y mini lecturas para ganar ritmo.</p>
+          </app-card>
+          <app-card>
+            <div class="step-number">03</div>
+            <div class="card-icon">✏️</div>
+            <h3>ESCRITURA</h3>
+            <p>Ejercicios guiados para trazar letras, armar palabras y frases.</p>
+          </app-card>
+          <app-card>
+            <div class="step-number">04</div>
+            <div class="card-icon">⭐</div>
+            <h3>COMPRENSIÓN</h3>
+            <p>Textos y preguntas sencillas que fortalecen la comprensión lectora.</p>
+          </app-card>
         </div>
       </div>
-    </section>
+    </app-section>
 
-    <section class="section accent" id="diferencial">
-      <h3>Más que actividades: un camino organizado</h3>
-      <div class="differential-grid" data-animate>
-        <div class="diff-card">
-          <h4>Organizadas por etapas</h4>
-          <p>Avanza de forma progresiva, comenzando por contenidos básicos y subiendo hacia lectura y comprensión.</p>
+    <app-section id="que-recibe" theme="cream">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>¿Qué vas a recibir?</h2>
+          <p>Más de 200 actividades listas para practicar y reforzar la alfabetización.</p>
         </div>
-        <div class="diff-card">
-          <h4>Listas para usar</h4>
-          <p>Evita perder tiempo preparando materiales. Accede a actividades listas para imprimir y aplicar.</p>
+        <div class="receive-wrapper" data-animate>
+          <div class="receive-list">
+            <ul>
+              <li><span>✓</span> +200 actividades educativas</li>
+              <li><span>✓</span> Actividades organizadas por etapas</li>
+              <li><span>✓</span> Sílabas</li>
+              <li><span>✓</span> Lectura</li>
+              <li><span>✓</span> Escritura</li>
+              <li><span>✓</span> Comprensión</li>
+              <li><span>✓</span> Material listo para imprimir</li>
+              <li><span>✓</span> Actividades para casa y aula</li>
+            </ul>
+          </div>
+          <div class="receive-media">
+            <div class="product-stack">
+              <div class="product-sheet" style="transform: rotate(-3deg);">
+                <strong>Kit DE LA SÍLABA A LA LECTURA</strong>
+                <p>Hoja tras hoja con desafíos progresivos y mucho color.</p>
+              </div>
+              <div class="product-sheet" style="transform: translateX(20px) rotate(2deg);">
+                <strong>Planifica sin estrés</strong>
+                <p>Selecciona la etapa y ten la actividad perfecta en segundos.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="diff-card">
-          <h4>Aprendizaje más divertido</h4>
-          <p>Actividades visuales, lúdicas y coloridas para mantener a los niños interesados mientras practican.</p>
+        <div style="margin-top: 32px; text-align: center;" data-animate>
+          <app-button label="¡QUIERO ACCEDER AHORA! →" variant="primary" size="lg" data-cta="que-recibe" checkout></app-button>
         </div>
       </div>
-    </section>
+    </app-section>
 
-    <section class="section light" id="producto">
-      <h3>¿Qué vas a recibir?</h3>
-      <div class="product-showcase" data-animate>
-        <h4>Kit De La Sílaba a la Lectura</h4>
-        <p>Más de 200 actividades digitales organizadas por etapas para reforzar sílabas, lectura, escritura y comprensión.</p>
-        <div class="tags">
-          <span class="tag">+200 ACTIVIDADES</span>
-          <span class="tag">PDF DIGITAL</span>
-          <span class="tag">ACTIVIDADES ORGANIZADAS</span>
-          <span class="tag">LISTAS PARA IMPRIMIR</span>
+    <app-section id="previas" theme="light">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>Explora algunas actividades</h2>
+          <p>Cada página parece una hoja educativa premium: colores suaves, íconos grandes y espacio para escribir.</p>
         </div>
-        <div class="showcase-mockups">
-          <div class="showcase-card">Hojas de sílabas coloreadas, recorta y arma palabras.</div>
-          <div class="showcase-card">Páginas de lectura con pictogramas y preguntas simples.</div>
-          <div class="showcase-card">Trazos y caligrafía para reforzar escritura.</div>
-          <div class="showcase-card">Historias cortas con tarjetas de comprensión.</div>
+        <div class="preview-gallery" data-animate>
+          <product-preview style="--angle:-2deg;">
+            <p class="preview-title">Laberinto de sílabas</p>
+            <p class="preview-text">Une las sílabas correctas para completar palabras y descubrir la ilustración.</p>
+          </product-preview>
+          <product-preview style="--angle:1deg;">
+            <p class="preview-title">Lectura con pictogramas</p>
+            <p class="preview-text">Textos cortos con dibujos que ayudan a anticipar palabras y comprender mejor.</p>
+          </product-preview>
+          <product-preview style="--angle:-1deg;">
+            <p class="preview-title">Tarjetas de escritura</p>
+            <p class="preview-text">Líneas guía para practicar letras, sílabas y trazos divertidos.</p>
+          </product-preview>
+          <product-preview style="--angle:2deg;">
+            <p class="preview-title">Comprensión ilustrada</p>
+            <p class="preview-text">Historias breves con preguntas y stickers para responder jugando.</p>
+          </product-preview>
         </div>
-        <div class="badges">
-          <div class="badge">Ideal para casa</div>
-          <div class="badge">Útil en aula</div>
-          <div class="badge">Refuerzo divertido</div>
-        </div>
-        <a class="btn btn-primary checkout-btn" data-cta="producto">¡QUIERO MI KIT!</a>
-      </div>
-    </section>
-
-    <section class="section" id="bonos">
-      <h3>BONOS EXCLUSIVOS</h3>
-      <div class="bonuses-grid" data-animate>
-        <div class="bonus-card">
-          <h4>Actividades en PDF listas para imprimir</h4>
-          <p>Material práctico para imprimir y comenzar a utilizar sin complicaciones.</p>
-        </div>
-        <div class="bonus-card">
-          <h4>Acceso inmediato y de por vida</h4>
-          <p>Recibe el acceso después de la compra y conserva tu material para utilizarlo cuando quieras.</p>
+        <div style="text-align: center; margin-top: 32px;" data-animate>
+          <app-button label="QUIERO VER TODO EL MATERIAL" variant="ghost" size="lg" data-cta="preview" checkout></app-button>
         </div>
       </div>
-    </section>
+    </app-section>
 
-    <section class="section light" id="publico">
-      <h3>Este kit es para ti si…</h3>
-      <div class="checklist" data-animate>
-        <div class="check-item"><span>✓</span><h4>Quieres apoyar el proceso de alfabetización</h4></div>
-        <div class="check-item"><span>✓</span><h4>Buscas actividades listas para utilizar</h4></div>
-        <div class="check-item"><span>✓</span><h4>Necesitas reforzar lectura y escritura</h4></div>
-        <div class="check-item"><span>✓</span><h4>Quieres practicar en casa o en el aula</h4></div>
-        <div class="check-item"><span>✓</span><h4>Te gustaría ahorrar tiempo preparando actividades</h4></div>
-        <div class="check-item"><span>✓</span><h4>Buscas un material claro, práctico y divertido</h4></div>
-      </div>
-    </section>
-
-    <section class="section" id="transformacion">
-      <h3>De buscar actividades sin parar… a tener todo organizado</h3>
-      <div class="before-after" data-animate>
-        <div class="before-card">
-          <h4>Antes</h4>
-          <p>Buscar actividades</p>
-          <p>Imprimir materiales diferentes</p>
-          <p>No saber qué aplicar</p>
-          <p>Perder tiempo preparando</p>
+    <app-section id="beneficios" theme="cream">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>Más que actividades: una forma práctica de acompañar el aprendizaje</h2>
         </div>
-        <div class="after-card">
-          <h4>Después</h4>
-          <p>+200 actividades</p>
-          <p>Contenido organizado</p>
-          <p>Material listo para usar</p>
-          <p>Más facilidad para practicar</p>
+        <div class="benefits-grid" data-animate>
+          <benefit-card>
+            <div class="card-icon">⏱️</div>
+            <h3>AHORRA TIEMPO</h3>
+            <p>Actividades listas para usar sin tener que preparar ejercicios desde cero.</p>
+          </benefit-card>
+          <benefit-card>
+            <div class="card-icon">🚀</div>
+            <h3>APRENDE PASO A PASO</h3>
+            <p>Contenido organizado para acompañar diferentes etapas de la alfabetización.</p>
+          </benefit-card>
+          <benefit-card>
+            <div la\nlass="card-icon">🎉</div>
+            <h3>PRACTICA DE FORMA DIVERTIDA</h3>
+            <p>Actividades visuales y lúdicas que hacen del aprendizaje un momento agradable.</p>
+          </benefit-card>
         </div>
       </div>
-    </section>
+    </app-section>
 
-    <section class="section light" id="oferta">
-      <div class="pricing-section" data-animate>
-        <h4>¡Todo este material por solo US$ 9,90!</h4>
-        <div class="pricing-features">
-          <span>+200 ACTIVIDADES</span>
-          <span>PDF DIGITAL</span>
-          <span>ACTIVIDADES POR ETAPAS</span>
-          <span>BONOS INCLUIDOS</span>
+    <app-section id="para-quien" theme="light">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>Este material es para ti si…</h2>
         </div>
-        <div class="price-display">US$ 9,90</div>
-        <p>Pago único • Acceso inmediato • Sin mensualidades</p>
-        <a class="btn cta-secondary checkout-btn" data-cta="precio">¡QUIERO MI KIT!</a>
+        <div class="audience-list" data-animate>
+          <div><span>✓</span> Quieres ayudar a tu hijo a avanzar en la alfabetización</div>
+          <div><span>✓</span> Buscas actividades listas para imprimir</div>
+          <div><span>✓</span> Necesitas reforzar lectura y escritura</div>
+          <div><span>✓</span> Quieres practicar en casa de forma sencilla</div>
+          <div><span>✓</span> Eres profesor y necesitas actividades para complementar tus clases</div>
+          <div><span>✓</span> Buscas actividades educativas claras y atractivas</div>
+        </div>
       </div>
-    </section>
+    </app-section>
 
-    <section class="section" id="garantia">
-      <div class="guarantee" data-animate>
-        <div class="seal">GARANTÍA DE 7 DÍAS</div>
-        <h3>Pruébalo sin riesgo durante 7 días</h3>
-        <p>Tienes 7 días para conocer el material. Si no estás satisfecho, puedes solicitar la devolución dentro del período de garantía.</p>
+    <app-section id="bonos" theme="cream">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>BONOS EXCLUSIVOS</h2>
+        </div>
+        <div class="bonus-grid" data-animate>
+          <div class="bonus-card">
+            <strong>🎁 Actividades en PDF listas para imprimir</strong>
+            <p>Material práctico para imprimir y utilizar en diferentes momentos de aprendizaje.</p>
+          </div>
+          <div class="bonus-card">
+            <strong>🎁 Acceso inmediato</strong>
+            <p>Después de la compra, recibe el acceso al material sin esperar.</p>
+          </div>
+          <div class="bonus-card">
+            <strong>🎁 Acceso de por vida</strong>
+            <p>Vuelve al material cuando quieras y continúa practicando.</p>
+          </div>
+        </div>
       </div>
-    </section>
+    </app-section>
 
-    <section class="section light" id="seguridad">
-      <div class="security-strip" data-animate>
-        <div class="security-item">COMPRA SEGURA<br />Ambiente protegido</div>
-        <div class="security-item">SATISFACCIÓN GARANTIZADA<br />7 días para probar</div>
-        <div class="security-item">ACCESO INMEDIATO<br />Descarga y comienza ahora</div>
+    <app-section id="oferta" theme="light">
+      <div class="section-content">
+        <offer-box data-animate>
+          <h2>Todo esto puede ser tuyo hoy</h2>
+          <div class="offer-list">
+            <span>+200 ACTIVIDADES</span>
+            <span>Sílabas</span>
+            <span>Lectura</span>
+            <span>Escritura</span>
+            <span>Comprensión</span>
+            <span>Actividades por etapas</span>
+            <span>Material listo para imprimir</span>
+            <span>Bonos exclusivos</span>
+          </div>
+          <div class="offer-price">US$ 9,90</div>
+          <div class="offer-note">Pago único • Acceso inmediato</div>
+          <app-button label="¡QUIERO ACCEDER AHORA! →" variant="secondary" size="lg" data-cta="oferta" checkout></app-button>
+        </offer-box>
       </div>
-    </section>
+    </app-section>
 
-    <section class="section" id="faq">
-      <h3>Preguntas frecuentes</h3>
-      <div class="faq-list" data-animate>
-        <details>
-          <summary>¿Qué incluye el kit?</summary>
-          <p>Incluye más de 200 actividades digitales organizadas por etapas.</p>
-        </details>
-        <details>
-          <summary>¿El material es digital?</summary>
-          <p>Sí. Recibirás el material en formato digital PDF.</p>
-        </details>
-        <details>
-          <summary>¿Puedo imprimir las actividades?</summary>
-          <p>Sí. Puedes imprimirlas para utilizarlas en casa o en el aula.</p>
-        </details>
-        <details>
-          <summary>¿Cómo recibo el acceso?</summary>
-          <p>Recibirás las instrucciones de acceso después de completar el pago.</p>
-        </details>
-        <details>
-          <summary>¿Es un pago único?</summary>
-          <p>Sí. No hay mensualidades ni suscripciones.</p>
-        </details>
-        <details>
-          <summary>¿Tengo garantía?</summary>
-          <p>Sí. Tienes 7 días de garantía.</p>
-        </details>
+    <app-section id="garantia" theme="cream">
+      <div class="section-content">
+        <div class="guarantee-box" data-animate>
+          <h2>Pruébalo sin riesgo</h2>
+          <p>Tienes 7 días para conocer el material. Si decides que no es para ti, puedes solicitar tu garantía.</p>
+          <div class="guarantee-grid">
+            <div class="guarantee-item">🛡️ Compra segura</div>
+            <div class="guarantee-item">✓ 7 días de garantía</div>
+            <div class="guarantee-item">⚡ Acceso inmediato</div>
+          </div>
+        </div>
       </div>
-    </section>
+    </app-section>
 
-    <section class="section" id="cta-final">
-      <div class="final-cta" data-animate>
-        <h3>¡EMPIEZA HOY MISMO!</h3>
-        <p>Deja de perder horas buscando actividades. Ten más de 200 ejercicios organizados para acompañar la alfabetización de forma práctica, clara y divertida.</p>
-        <div class="price-display">US$ 9,90</div>
-        <a class="btn btn-primary checkout-btn" data-cta="cta-final">¡QUIERO ACCEDER AHORA! →</a>
-        <p>Pago único • Acceso inmediato • Garantía de 7 días</p>
+    <app-section id="testimonios" theme="light">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>Lo que dicen quienes ya lo están usando</h2>
+          <p>Testimonios de ejemplo. Sustituye estos textos por comentarios reales cuando los tengas.</p>
+        </div>
+        <div class="testimonial-grid" data-animate>
+          <testimonial-card>
+            <p class="testimonial-placeholder">“Escribe aquí el testimonio real de un padre o docente.”</p>
+            <div class="testimonial-name">Nombre Apellido • Ciudad</div>
+          </testimonial-card>
+          <testimonial-card>
+            <p class="testimonial-placeholder">“Ejemplo de comentario positivo sobre el kit digital.”</p>
+            <div class="testimonial-name">Nombre Apellido • Profesión</div>
+          </testimonial-card>
+          <testimonial-card>
+            <p class="testimonial-placeholder">“Reserva este espacio para compartir resultados o experiencias.”</p>
+            <div class="testimonial-name">Nombre Apellido • Docente</div>
+          </testimonial-card>
+        </div>
       </div>
-    </section>
+    </app-section>
+
+    <app-section id="faq" theme="cream">
+      <div class="section-content">
+        <div class="section-heading" data-animate>
+          <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="faq-list" data-animate>
+          <faq-item question="¿Para qué edad es el material?" answer="Está pensado para niños en etapa de alfabetización."></faq-item>
+          <faq-item question="¿Puedo utilizarlo en casa?" answer="Sí. Está pensado también para reforzar el aprendizaje en casa."></faq-item>
+          <faq-item question="¿Puedo imprimir las actividades?" answer="Sí. El material está preparado para imprimir."></faq-item>
+          <faq-item question="¿Cómo recibo el material?" answer="Recibirás el acceso después de completar la compra."></faq-item>
+          <faq-item question="¿Es un pago único?" answer="Sí. No hay mensualidad."></faq-item>
+        </div>
+      </div>
+    </app-section>
+
+    <app-section id="cta-final" theme="light">
+      <div class="section-content">
+        <div class="final-cta" data-animate>
+          <h2>¡AYUDA A CONVERTIR EL APRENDIZAJE EN UN MOMENTO DIVERTIDO!</h2>
+          <p>Ten más actividades para practicar sílabas, lectura, escritura y comprensión de forma sencilla y organizada.</p>
+          <div class="offer-price">US$ 9,90</div>
+          <app-button label="¡QUIERO ACCEDER AHORA! →" variant="primary" size="lg" data-cta="cta-final" checkout></app-button>
+          <p>Compra segura • 7 días de garantía • Acceso inmediato</p>
+        </div>
+      </div>
+    </app-section>
 
     <footer>
-      © 2024 De la Sílaba a la Lectura. Producto digital educativo. Todos los derechos reservados.
+      Turminha Alfa Kids<br />
+      © 2026 Todos los derechos reservados.
+      <div class="footer-links">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos de Uso</a>
+        <a href="#">Política de Reembolso</a>
+      </div>
     </footer>
   </div>
 
+  <a class="floating-cta checkout-btn" data-cta="floating">¡QUIERO ACCEDER POR US$ 9,90!</a>
+
   <script>
+    class AppButton extends HTMLElement {
+      connectedCallback() {
+        const label = this.getAttribute("label") || "Haz clic";
+        const variant = this.getAttribute("variant") || "primary";
+        const size = this.getAttribute("size") || "md";
+        const block = this.hasAttribute("block") ? " btn-block" : "";
+        const cta = this.getAttribute("data-cta") || "default";
+        const checkout = this.hasAttribute("checkout");
+        this.innerHTML = "";
+        const anchor = document.createElement("a");
+        anchor.className = `btn btn-${variant} btn-${size}${block}` + (checkout ? " checkout-btn" : "");
+        anchor.dataset.cta = cta;
+        anchor.textContent = label;
+        this.appendChild(anchor);
+      }
+    }
+
+    customElements.define("app-button", AppButton);
+
+    class FaqItem extends HTMLElement {
+      connectedCallback() {
+        const question = this.getAttribute("question") || "Pregunta";
+        const answer = this.getAttribute("answer") || "Respuesta";
+        this.innerHTML = `<details><summary>${question}</summary><p>${answer}</p></details>`;
+      }
+    }
+
+    customElements.define("faq-item", FaqItem);
+
     const CHECKOUT_URL = "https://tu-enlace-de-checkout.com";
-    document.querySelectorAll(".checkout-btn").forEach((btn) => {
-      btn.setAttribute("href", CHECKOUT_URL);
-      btn.setAttribute("target", "_blank");
-      btn.setAttribute("rel", "noopener noreferrer");
+
+    const assignCheckoutLinks = () => {
+      document.querySelectorAll(".checkout-btn").forEach((btn) => {
+        btn.setAttribute("href", CHECKOUT_URL);
+        btn.setAttribute("target", "_blank");
+        btn.setAttribute("rel", "noopener noreferrer");
+      });
+    };
+
+    const initObserver = () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+    };
+
+    window.addEventListener("DOMContentLoaded", () => {
+      assignCheckoutLinks();
+      initObserver();
     });
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
